@@ -1,0 +1,15 @@
+@import "tailwindcss";
+
+@theme {
+  --color-miko-black: #121212;
+  --color-miko-charcoal: #1E1E1E;
+  --color-miko-gold: #D4AF37;
+  --color-miko-sand: #E6D5B8;
+  --color-miko-cream: #FDFBF7;
+}
+
+body {
+  background-color: var(--color-miko-black);
+  color: var(--color-miko-cream);
+  font-family: 'Inter', sans-serif;
+}
