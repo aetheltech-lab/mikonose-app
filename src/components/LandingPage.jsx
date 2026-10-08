@@ -1,16 +1,15 @@
 import React from 'react';
+import logo from '../assets/mykonose_logo.png';
+import bgImage from '../assets/mykonos_bg.jpg';
 
 export default function LandingPage({ onNavigate }) {
-  // We can change this URL dynamically based on the location/IP later (e.g., Ibiza, Miami)
-  const backgroundImage = "https://images.unsplash.com/photo-1601581875309-fafbf2d3ed3a?q=80&w=1974&auto=format&fit=crop"; 
-
   return (
     <div className="min-h-screen bg-miko-black text-miko-cream flex flex-col font-sans max-w-md mx-auto relative shadow-2xl overflow-hidden">
       
       {/* Dynamic Background Image with Gradient Overlay */}
       <div 
         className="absolute inset-0 z-0 bg-cover bg-center"
-        style={{ backgroundImage: `url(${backgroundImage})` }}
+        style={{ backgroundImage: `url(${bgImage})` }} 
       >
         <div className="absolute inset-0 bg-gradient-to-b from-miko-black/40 via-miko-black/80 to-miko-black"></div>
       </div>
@@ -19,9 +18,11 @@ export default function LandingPage({ onNavigate }) {
         
         {/* Header / Logo Area */}
         <div className="mt-12 mb-auto flex flex-col items-center text-center">
-          <h1 className="text-4xl font-bold tracking-widest text-miko-cream mb-2 drop-shadow-lg">
-            MIKONOSÉ
-          </h1>
+          <img 
+            src={logo} 
+            alt="Mikonosé" 
+            className="w-48 h-auto mb-4 drop-shadow-lg" 
+          />
           <p className="text-miko-sand tracking-wide text-sm opacity-90 uppercase">
             Meet in real life. Stay connected.
           </p>

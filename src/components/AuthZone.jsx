@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import logo from '../assets/mykonose_logo.png';
 
 export default function AuthZone({ onNavigate }) {
   const [isLogin, setIsLogin] = useState(true);
@@ -41,9 +42,9 @@ export default function AuthZone({ onNavigate }) {
         <button onClick={() => onNavigate('landing')} className="w-10 h-10 flex items-center justify-center hover:bg-gray-800 rounded-full transition">
           ←
         </button>
-        <h1 className="flex-1 text-center font-semibold text-lg pr-10">
-          {isLogin ? 'Welcome Back' : 'Create Account'}
-        </h1>
+        <div className="flex-1 flex justify-center pr-10">
+          <img src={logo} alt="Mikonosé" className="h-6 w-auto opacity-90" />
+        </div>
       </div>
 
       <div className="p-6 flex flex-col flex-1">
