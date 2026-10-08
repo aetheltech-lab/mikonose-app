@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { mockVenue, mockStaff } from './data/mockDatabase';
 import StaffProfile from './components/StaffProfile';
 import LandingPage from './components/LandingPage';
@@ -6,8 +6,18 @@ import AuthZone from './components/AuthZone';
 import StaffDashboard from './components/StaffDashboard';
 import GuestProfile from './components/GuestProfile';
 import VenueDashboard from './components/VenueDashboard';
+import MarketingWebsite from './components/MarketingWebsite';
 
 function App() {
+  // Screen size detection for presentation mode
+  const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 1024);
+
+  useEffect(() => {
+    const handleResize = () => setIsDesktop(window.innerWidth >= 1024);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   const [currentView, setCurrentView] = useState('landing');
   const [activeFilter, setActiveFilter] = useState('All');
   const [selectedStaff, setSelectedStaff] = useState(null);
@@ -17,7 +27,13 @@ function App() {
     ? mockStaff 
     : mockStaff.filter(staff => staff.role === activeFilter);
 
-  // --- ROUTER LOGIC ---
+  // --- RESPONSIVE ROUTER INTERCEPT ---
+  // If viewing on a large laptop/monitor, show the Website with the QR code.
+  if (isDesktop) {
+    return <MarketingWebsite />;
+  }
+
+  // --- MOBILE APP ROUTER LOGIC ---
   
   if (currentView === 'landing') {
     return <LandingPage onNavigate={setCurrentView} />;

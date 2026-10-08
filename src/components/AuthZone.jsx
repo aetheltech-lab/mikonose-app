@@ -55,7 +55,7 @@ export default function AuthZone({ onNavigate }) {
             ←
           </button>
           <div className="flex-1 flex justify-center pr-10">
-            <img src={logo} alt="Mikonosé" className="h-6 w-auto opacity-90 drop-shadow-lg" />
+            <img src={logo} alt="Mikonosé" className="h-12 w-auto opacity-100 drop-shadow-xl" />
           </div>
         </div>
 
